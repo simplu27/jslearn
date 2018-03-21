@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Display Info about ID, Attribute, etc.</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+	body {font-family: Arial, sans-serif; font-size: 14px;}
+	p.info {
+		font-size: 80%;
+		opacity: .8;
+	}
+
+	.boxes {
+		display: flex;
+		align-items: flex-start;
+	}
+
+	div .box {
+		max-width: 200px;
+		background: #FFBA00;
+		padding: 10px;
+		margin-right: 10px;
+		display: inline-block;
+	}
+
+	p span {font-weight: bold; background: yellow;}
+
+</style>
+</head>
+<body>
+
+<p class="info">Hover over box to see info about.</p>
+
+<p class="m-info">Show ID: <span id="mId"></span></p>
+<p class="m-info">Show Title Attribute: <span id="mAttribute"></span></p>
+<p class="m-info">Show innerHTML: <span id="mContent"></span></p>
+<p class="m-info">Dimensions of the box: <span id="mDimensions"></span></p>
+
+<div class="boxes">
+	<div title="I am Box nr. 1" id="box1" class="box" onmouseover="showInfo(this)">
+		<h3>Box 1 Content</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+	</div>
+
+	<div title="I am Box nr. 2" id="box2" class="box" onmouseover="showInfo(this)">
+		<h3>Box 2 Content</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, qui!</p>
+	</div>
+
+	<div title="I am Box nr. 3" id="box3" class="box" onmouseover="showInfo(this)">
+		<h3>Box 3 Content</h3>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel molestias accusamus consequuntur dolore, harum similique quo, quia distinctio blanditiis totam modi amet fugiat consectetur!</p>
+	</div>
+
+</div><!-- boxes -->
+
+<p title="" onmouseover="showInfo(this)">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, cumque! Dolor ad nemo incidunt eaque maiores possimus. Odio aliquid quidem sunt, pariatur vel ducimus nobis repudiandae provident quaerat sapiente porro reprehenderit atque voluptates, rerum explicabo asperiores ab? Esse tenetur odio quam magnam blanditiis unde aliquam harum dicta temporibus cum, soluta accusamus, perferendis inventore a quia deserunt, quibusdam voluptatibus, quasi possimus.</p>
+
+<script>
+	
+	function showInfo(element){
+		document.getElementById('mId').innerHTML = element.id;
+		document.getElementById('mAttribute').innerHTML = element.title;
+		document.getElementById('mContent').innerHTML = element.innerHTML;
+
+		// Dimensions: clientWidth x clientHeight 
+		document.getElementById('mDimensions').innerHTML = element.clientWidth + "x" + element.clientHeight;
+	}
+
+
+</script>
+
+
+</body>
+</html>

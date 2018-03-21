@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Learn JS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" media="screen" href="style.css">
+</head>
+<body onload="setDate(), programMagazin();">
+
+
+<p>Curent date is: <span style="font-weight: bold;" id="date"></span></p>
+
+<p>Hour is: <span id="hour"></span></p>
+<button onclick="setDate();"><strong>Refresh Date</strong></button>
+
+<hr>
+
+<p><span id="program"></span></p>
+<button onclick="programMagazin();">Actualizeaza ora</button>
+
+
+<script type="text/javascript">
+	
+	function setDate(){
+		document.getElementById('date').innerHTML = Date();
+		var d = new Date();
+		document.getElementById('hour').innerHTML = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+	}
+
+
+	/*
+		Seteaza mesaj in functie de ora. Program de la 08-17
+		Daca ora este mai mica decat 8 sau mai mare ca 17, se afiseaza
+		mesajul "Magazinul este inchis" 
+		Daca ora este intre 08 (inclusiv) si 17, se afiseaza mesajul "Magazinul este deschis"
+
+		Functia se declanseaza <body onload="programMagazin();">
+		sau cu un buton de actualizare a orei:
+		<button onclick="programMagazin();">Actualizeaza ora</button>
+	*/
+	function programMagazin(){
+
+		var oraCurenta = new Date().getHours(); // returneaza 0-23
+		// var oraCurenta = 6; // doar pentru testare
+		var minutCurent = new Date().getMinutes(); // returneaza 0-59
+		// var minutCurent = 2; // doar pentru testare
+
+		// Pune "0" in fata orei daca e mai mica ca 10 (1 -> 01)
+		oraCurenta = (oraCurenta < 10 ? "0" : "") + (oraCurenta);
+		// Pune "0" in fata minutelor daca sunt mai mici ca 10 (5 -> 05)
+		minutCurent = (minutCurent < 10 ? "0" : "") + (minutCurent);
+
+		// initiaza variabila
+		var mesaj= "";
+		
+		if (oraCurenta <= 7 || oraCurenta > 16) {
+			mesaj = "Este ora " + oraCurenta + ":" + minutCurent + ". Magazinul este inchis!";
+		} else {
+			mesaj = "Este ora " + oraCurenta + ":" + minutCurent +". Magazinul este deschis!";
+		}
+
+		// gaseste id-ul "program" si afiseaza mesajul in functie de ora.
+		document.getElementById('program').innerHTML = mesaj;
+	}
+
+
+</script>
+
+
+</body>
+</html>

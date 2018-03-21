@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Show Hide JS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+	p#paragraph {
+		max-width: 300px;
+		padding: 10px;
+		background: rgba(0,0,0,.05);
+	}
+
+	#mesaj {color: red; font-weight: bold;}
+
+	.show {display: block;}
+	.hide {display: none;}
+
+</style>
+</head>
+<body>
+
+<p>Paragraful este <span id="mesaj">vizibil</span></p>
+<p>
+	<button id="hideButton" onclick="hidePara();">Hide Paragraph</button>
+	<button id="showButton" onclick="showPara();">Show Paragraph</button>
+</p>
+
+<p id="paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad provident nostrum aliquam aut a similique porro ducimus commodi alias, quod rem esse expedita cumque, modi cum ut doloribus, tempore non. Voluptatum similique possimus quod rem repudiandae, ex tenetur cum iusto.</p>
+
+
+<script type="text/javascript">
+	
+	var para = document.getElementById("paragraph");
+	document.getElementById('showButton').disabled = true;
+
+	function showPara(){
+		para.className ='show';
+		document.getElementById('hideButton').disabled = false;
+		document.getElementById('showButton').disabled = true;
+
+		document.getElementById('mesaj').innerHTML = "vizibil";
+	}
+
+	function hidePara(){
+		para.className = 'hide';
+		document.getElementById('showButton').disabled = false;
+		document.getElementById('hideButton').disabled = true;
+
+		document.getElementById('mesaj').innerHTML = "ascuns";
+	}
+
+</script>
+
+</body>
+</html>

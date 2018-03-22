@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Image Attribute JS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+*, *:before, *:after {margin: 0; box-sizing: border-box;}
+
+img {max-width: 100%; height: auto;}
+
+.wrapper {
+	max-width: 450px;
+	margin: 20px auto;
+}
+
+#view {
+	min-height: 200px;
+	padding: 0;
+	margin: 10px auto;
+	background: #333;
+	text-align: center;
+}
+
+#desc {
+	padding: 10px; background: #DFDFDF;
+	margin: 0 auto 10px; text-align: center;
+}
+
+#view img {
+	max-height: 200px;
+}
+
+.thumbs {
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.image {
+	max-width: 32%;
+	display: block;
+	height: auto;
+	margin-bottom: 7px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrapper">
+
+	<div id="view">
+		This is the place where image will show up. It is replaced with the first image, by default.
+	</div>
+	<div id="desc"></div>
+
+	<div class="thumbs">
+		<img src="img/01.jpg" alt="This is the first image" class="image" onmouseover="showImage(this);" onmouseleave="defaultImage();">
+		<img src="img/02.jpg" alt="This is the second image" class="image" onmouseover="showImage(this);" onmouseleave="defaultImage();">
+		<img src="img/03.jpg" alt="This is the third image" class="image" onmouseover="showImage(this);" onmouseleave="defaultImage();">
+		<img src="img/04.jpg" alt="This is the Fourth image" class="image" onmouseover="showImage(this);" onmouseleave="defaultImage();">
+		<img src="img/05.jpg" alt="This is the Fifth image" class="image" onmouseover="showImage(this);" onmouseleave="defaultImage();">
+		<img src="img/06.jpg" alt="This is the Sixth image" class="image" onmouseover="showImage(this);" onmouseleave="defaultImage();">
+	</div>
+
+</div><!-- wrapper -->
+
+<script>
+
+
+
+	var images = document.getElementsByClassName('image');
+	var firstImage = images[0];
+
+	var view = document.getElementById('view');
+	view.innerHTML = '<img src="' + firstImage.src + '">';
+	// view.innerHTML = 'Hello';
+
+	var desc = document.getElementById('desc');
+	desc.innerHTML = firstImage.alt;
+
+	function showImage(element){
+		// view.innerHTML = element.alt;
+		view.innerHTML = '<img src="' + element.src + '">';
+		desc.innerHTML = element.alt;
+	}
+
+	function defaultImage(){
+		view.innerHTML = '<img src="' + firstImage.src + '">';
+		desc.innerHTML = firstImage.alt;
+	}
+
+</script>
+
+</body>
+</html>

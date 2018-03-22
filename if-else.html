@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>If Else Statement in JS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" media="screen" href="style.css">
+</head>
+<body>
+
+<script type="text/javascript">
+	
+var myNumbers = [66, 87, 124, 5436, 6754, 765];
+var sum = 0;
+
+// document.write(myNumbers.length);
+
+if (myNumbers.length > 0) {
+
+	for (i = 0; i < myNumbers.length; i++) {
+		sum += myNumbers[i];
+	}
+
+	var average = sum / myNumbers.length;
+	
+	document.write('Numerele din array sunt: ' + myNumbers);
+	document.write('<br>');
+	document.write('In total sunt <strong>: ' + myNumbers.length + '</strong> numere');
+
+	document.write('<br>');
+	document.write('Media aritmetica a celor ' + myNumbers.length + ' numere este: ' + average.toFixed(2));
+} else {
+	document.write('Empty Array');
+}
+
+
+</script>
+
+
+</body>
+</html>

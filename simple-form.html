@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Simple Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+	
+	form {
+		max-width: 500px;
+		margin: 20px auto;
+		background: #EFEFEF;
+		padding: 30px;
+	}
+
+	.form-row {
+		display: flex;
+		width: 100%;
+		margin-bottom: 20px;
+		font-size: 16px;
+		line-height: 1.4;
+	}
+
+	.form-row input,
+	.form-row select,
+	.radio {
+		flex: 3;
+		padding: 5px;
+	}
+
+	.form-row label {
+		flex: 1;
+		text-align: right;
+		margin-right: 20px;
+	}
+
+	input#color {padding: 0;}
+
+</style>
+</head>
+<body>
+
+<form action="">
+	<div class="form-row">
+		<label for="name">Name: </label>
+		<input type="textfield" name="name" id="name">
+	</div>
+	
+	<div class="form-row">
+		<label for="email">Email: </label>
+		<input type="email" name="email" id="email">
+	</div>
+
+	<div class="form-row">
+		<label for="password">Password: </label>
+		<input type="password" name="password" id="password">
+	</div>
+
+	<div class="form-row">
+		<label for="select">Select: </label>
+		<select size="1">
+		  <option value="opel">Opel</option>
+		  <option value="volvo">Volvo</option>
+		  <option value="dacia">Dacia</option>
+		  <option value="renault">Renault</option>
+		  <option value="mercedes">Mercedes</option>
+		  <option value="saab">Saab</option>
+		  <option value="audi">Audi</option>
+		</select>
+	</div>
+
+	<div class="form-row">
+		<label for="optgroup">Option Group: </label>
+		<select>
+			<optgroup label="Swedish Cars">
+				<option value="volvo">Volvo</option>
+				<option value="saab">Saab</option>
+			</optgroup>
+			<optgroup label="German Cars">
+				<option value="mercedes">Mercedes</option>
+				<option value="audi">Audi</option>
+			</optgroup>
+		</select> 
+	</div>
+
+	<div class="form-row">
+		<label for="gender">Radio Buttons:</label>
+		<div class="radio">
+			<input type="radio" name="gender" id="male" value="male"><label for="male"> Male</label>
+			<input type="radio" name="gender" id="female" value="female"><label for="female"> Female</label>
+			<input type="radio" name="gender" id="other" value="other"><label for="other" checked="true"> Other</label>
+		</div>
+	</div>
+
+	<div class="form-row">
+		<label for="color">Color:</label>
+		<input type="color" name="color" id="color">
+	</div>
+
+	<div class="form-row">
+		<label for="url">URL:</label>
+		<input type="url" name="url" id="url" value="http://">
+	</div>
+
+	<div class="form-row">
+		<label for="dateofbirth">Date of birth:</label>
+		<input type="date" name="dateofbirth" id="dateofbirth">
+	</div>
+
+	<div class="form-row">
+		<label for="range">Range:</label>
+		<input type="range" name="range" id="range" min="10" max="100" value="25">
+	</div>
+
+	<div class="form-row">
+		<input type="reset"><input type="submit">
+	</div>
+	
+
+</form>
+
+</body>
+</html>
